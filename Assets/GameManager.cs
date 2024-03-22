@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     // Player's Status
     public float health = 100;
     public float ballCounts = 0;
+    public float enemyCounts = 0;
     public float pistolAmmons = 50f;
     public float rifleAmmons = 200f;
     public float shotgunAmmons = 10f;
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
     public TMP_Text healthText;
     public TMP_Text ballCountsText;
     public TMP_Text timerText;
+    public TMP_Text enemyCounterText;
     public TMP_Text pistolAmmonsText;
     public TMP_Text rifleAmmonsText;
     public TMP_Text shotgunAmmonsText;
@@ -61,6 +63,7 @@ public class GameManager : MonoBehaviour
         healthText.text = "HP: " + Mathf.Round(health);
         ballCountsText.text = "SCORE: " + Mathf.Round(ballCounts);
         timerText.text = "TIMER: " + Mathf.Round(countdownTimer);
+        enemyCounterText.text = "ENEMY: " + Mathf.Round(enemyCounts);
         pistolAmmonsText.text = "HAND GUM AMMO: " + Mathf.Round(pistolAmmons);
         rifleAmmonsText.text = "RIFLE GUM AMMO: " + Mathf.Round(rifleAmmons);
         shotgunAmmonsText.text = "SHOT GUM AMMO: " + Mathf.Round(shotgunAmmons);
@@ -131,8 +134,7 @@ public class GameManager : MonoBehaviour
 
         if (dashCurrent < 3)
         {
-            dashCurrent += 1 * Time.deltaTime;
-            dashBar.UpdateDashBar(dashCurrent, dashLimited);
+            StartCoroutine(RecoverDash());
         }
 
         if (dashCurrent >= 3)
@@ -166,6 +168,14 @@ public class GameManager : MonoBehaviour
             bombAmountText.text = "GUMMY BOMBS: " + Mathf.Round(bombsAmount);
         }
         
+
+    }
+
+    private IEnumerator RecoverDash()
+    {
+        yield return new WaitForSeconds(3);
+        dashCurrent += 1 * Time.deltaTime;
+        dashBar.UpdateDashBar(dashCurrent, dashLimited);
 
     }
 

@@ -70,6 +70,8 @@ public class PlayerControlsScript : MonoBehaviour
     public float bombThrowHeight = 2f;
 
     // Sound Effects
+    public AudioSource gumballShootSoundEffect;
+    public AudioSource jumpSoundEffect;
     public AudioSource dashSoundEffect;
   
 
@@ -112,7 +114,8 @@ public class PlayerControlsScript : MonoBehaviour
         if (context.performed && isGrounded && GameManager.Instance.playing == true)
         {
             // When the player jumps from the ground
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); 
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            jumpSoundEffect.Play();
         }
         
 
@@ -242,6 +245,7 @@ public class PlayerControlsScript : MonoBehaviour
                 GameManager.Instance.ballCountsText.text = "SCORE: " + Mathf.Round(GameManager.Instance.ballCounts);
                 GameManager.Instance.pistolAmmons -= 1;
                 GameManager.Instance.pistolAmmonsText.text = "HAND GUM AMMO: " + Mathf.Round(GameManager.Instance.pistolAmmons);
+                gumballShootSoundEffect.Play();
             }
             
         }
@@ -255,6 +259,7 @@ public class PlayerControlsScript : MonoBehaviour
                 GameManager.Instance.ballCountsText.text = "SCORE: " + Mathf.Round(GameManager.Instance.ballCounts);
                 GameManager.Instance.rifleAmmons -= 1;
                 GameManager.Instance.rifleAmmonsText.text = "RIFLE GUM AMMO: " + Mathf.Round(GameManager.Instance.rifleAmmons);
+                gumballShootSoundEffect.Play();
             }
             
         }
@@ -269,6 +274,7 @@ public class PlayerControlsScript : MonoBehaviour
                 GameManager.Instance.ballCountsText.text = "SCORE: " + Mathf.Round(GameManager.Instance.ballCounts);
                 GameManager.Instance.shotgunAmmons -= 1;
                 GameManager.Instance.shotgunAmmonsText.text = "SHOT GUM AMMO: " + Mathf.Round(GameManager.Instance.shotgunAmmons);
+                gumballShootSoundEffect.Play();
             }
             
         }

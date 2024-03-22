@@ -8,6 +8,7 @@ public class SourBulletScript : MonoBehaviour
     public ParticleSystem bulletEffect;
     public Transform bulletPosition;
     public AudioSource playerHurtSoundEffect;
+    public AudioSource playerHurtSoundEffect2;
 
     void Update()
     {
@@ -28,6 +29,7 @@ public class SourBulletScript : MonoBehaviour
             Destroy(this.gameObject);
             GameManager.Instance.healthCurrent -= 10;
             GameManager.Instance.healthBar.UpdateHealthhBar(GameManager.Instance.healthCurrent, GameManager.Instance.healthLimited);
+            playerHurtSoundEffect2.Play();
             if (GameManager.Instance.health > 0 )
             {
                 playerHurtSoundEffect.Play();

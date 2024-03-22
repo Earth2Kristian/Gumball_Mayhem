@@ -20,6 +20,7 @@ public class EnemiesHealthScript : MonoBehaviour
 
     // Sound Effects
     public AudioSource enemiesHurtSoundEffect;
+    public AudioSource enemiesHurtSoundEffect2;
     public AudioSource enemiesDiesSoundEffect;
     
     void Start()
@@ -39,6 +40,8 @@ public class EnemiesHealthScript : MonoBehaviour
             ParticleSystem playEffect2 = Instantiate(destoryEffect2, gumPosition.position, Quaternion.identity);
             GameObject appearGumBits = Instantiate(gumBits, gumPosition.position, Quaternion.identity);
             enemiesDiesSoundEffect.Play();
+            GameManager.Instance.enemyCounts -= 1;
+            GameManager.Instance.enemyCounterText.text = "ENEMY: " + Mathf.Round(GameManager.Instance.enemyCounts);
         }
     }
 
@@ -53,6 +56,7 @@ public class EnemiesHealthScript : MonoBehaviour
             if (enemiesHealth > 0)
             {
                 enemiesHurtSoundEffect.Play();
+                enemiesHurtSoundEffect2.Play();
             }
             
         }
@@ -65,6 +69,7 @@ public class EnemiesHealthScript : MonoBehaviour
             if (enemiesHealth > 0)
             {
                 enemiesHurtSoundEffect.Play();
+                enemiesHurtSoundEffect2.Play();
             }
 
         }
@@ -75,6 +80,7 @@ public class EnemiesHealthScript : MonoBehaviour
             GameManager.Instance.ballCountsText.text = "SCORE: " + Mathf.Round(GameManager.Instance.ballCounts);
             ParticleSystem playHitEffect = Instantiate(hitEffect, hitPosition.position, Quaternion.identity);
             enemiesDiesSoundEffect.Play();
+            enemiesHurtSoundEffect2.Play();
 
         }
         if (other.CompareTag("Explosion"))
@@ -83,6 +89,7 @@ public class EnemiesHealthScript : MonoBehaviour
             GameManager.Instance.ballCounts += 40;
             GameManager.Instance.ballCountsText.text = "SCORE: " + Mathf.Round(GameManager.Instance.ballCounts);
             enemiesDiesSoundEffect.Play();
+            enemiesHurtSoundEffect2.Play();
         }
     }
 

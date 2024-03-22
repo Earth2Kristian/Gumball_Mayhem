@@ -6,6 +6,7 @@ public class EnemiesHitCollider : MonoBehaviour
 {
 
     public AudioSource playerHurtSoundEffect;
+    public AudioSource playerHurtSoundEffect2;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,6 +18,7 @@ public class EnemiesHitCollider : MonoBehaviour
             if (GameManager.Instance.health > 0)
             {
                 playerHurtSoundEffect.Play();
+                playerHurtSoundEffect2.Play();
             }
         }
     }
