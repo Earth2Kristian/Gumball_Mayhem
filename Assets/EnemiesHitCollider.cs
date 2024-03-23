@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemiesHitCollider : MonoBehaviour
 {
+    //public GameObject playerCamera;
+    //public Animator playerCameraAnimate;
 
     public AudioSource playerHurtSoundEffect;
     public AudioSource playerHurtSoundEffect2;
@@ -15,11 +17,15 @@ public class EnemiesHitCollider : MonoBehaviour
             GameManager.Instance.healthCurrent -= 5;
             GameManager.Instance.healthBar.UpdateHealthhBar(GameManager.Instance.healthCurrent, GameManager.Instance.healthLimited);
 
+            GameManager.Instance.playerGotHit = true;
+
             if (GameManager.Instance.health > 0)
             {
                 playerHurtSoundEffect.Play();
                 playerHurtSoundEffect2.Play();
             }
         }
+
+
     }
 }

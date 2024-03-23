@@ -29,6 +29,9 @@ public class SourBulletScript : MonoBehaviour
             Destroy(this.gameObject);
             GameManager.Instance.healthCurrent -= 10;
             GameManager.Instance.healthBar.UpdateHealthhBar(GameManager.Instance.healthCurrent, GameManager.Instance.healthLimited);
+
+            GameManager.Instance.playerGotHit = true;
+
             playerHurtSoundEffect2.Play();
             if (GameManager.Instance.health > 0 )
             {

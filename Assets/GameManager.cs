@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager instance = null;
 
+    public Animator playerCameraAnimate;
+
     public bool ableToClick = true;
     public float countdownTimer = 300;
 
@@ -24,6 +26,7 @@ public class GameManager : MonoBehaviour
     public float healthCurrent;
     public float healthLimited = 100;
     public HealthBarScript healthBar;
+    public bool playerGotHit;
 
     // Player's Dash Status
     public float dashCurrent;
@@ -69,6 +72,9 @@ public class GameManager : MonoBehaviour
         shotgunAmmonsText.text = "SHOT GUM AMMO: " + Mathf.Round(shotgunAmmons);
         bombAmountText.text = "GUMMY BOMBS: " + Mathf.Round(bombsAmount);
 
+        // Camera is set to idle
+        playerCameraAnimate.SetBool("playerGotHit", false);
+
 
         // Game will play
         Time.timeScale = 0f;
@@ -80,6 +86,8 @@ public class GameManager : MonoBehaviour
         // Set the Dash Bar for the Player
         dashCurrent = dashLimited;
         dashBar.UpdateDashBar(dashCurrent, dashLimited);
+
+        playerGotHit = false;
 
         ableToClick = true;
         playing = false;
@@ -143,6 +151,17 @@ public class GameManager : MonoBehaviour
             dashBar.UpdateDashBar(dashCurrent, dashLimited);
         }
 
+        // Condition when the player got hit
+        if (playerGotHit == true)
+        {
+            playerCameraAnimate.SetBool("playerGotHit", true);
+            StartCoroutine(CameraShakingDelay());
+        }
+        else if (playerGotHit == false)
+        {
+            playerCameraAnimate.SetBool("playerGotHit", false);
+        }
+
         // Maxmium Ammons
         if (pistolAmmons >= 50)
         {
@@ -177,6 +196,11 @@ public class GameManager : MonoBehaviour
         dashCurrent += 1 * Time.deltaTime;
         dashBar.UpdateDashBar(dashCurrent, dashLimited);
 
+    }
+    public IEnumerator CameraShakingDelay()
+    {
+        yield return new WaitForSeconds(0.5f);
+        playerGotHit = false;
     }
 
     public void PlayButton()

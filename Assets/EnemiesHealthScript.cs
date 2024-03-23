@@ -22,10 +22,17 @@ public class EnemiesHealthScript : MonoBehaviour
     public AudioSource enemiesHurtSoundEffect;
     public AudioSource enemiesHurtSoundEffect2;
     public AudioSource enemiesDiesSoundEffect;
-    
+
+    // Floating Text
+    public Camera playerCamera;
+    public Transform enemyFloatingTextPosition;
+    public GameObject floatingText;
+
     void Start()
     {
         enemiesHealth = 100;
+
+        playerCamera = Camera.main;
     }
 
     
@@ -59,6 +66,13 @@ public class EnemiesHealthScript : MonoBehaviour
                 enemiesHurtSoundEffect2.Play();
             }
             
+            Quaternion floatingTextRotation = Quaternion.Euler(0, 180, 0);
+            GameObject ft = Instantiate(floatingText, enemyFloatingTextPosition.position, floatingTextRotation);
+            ft.transform.LookAt(playerCamera.transform.position);
+            ft.transform.rotation = Quaternion.LookRotation(playerCamera.transform.forward);
+            ft.GetComponent<TextMesh>().text = enemiesHealth.ToString();
+            
+
         }
         if (other.CompareTag("BasicGum"))
         {
@@ -72,6 +86,12 @@ public class EnemiesHealthScript : MonoBehaviour
                 enemiesHurtSoundEffect2.Play();
             }
 
+            Quaternion floatingTextRotation = Quaternion.Euler(0, 180, 0);
+            GameObject ft = Instantiate(floatingText, enemyFloatingTextPosition.position, floatingTextRotation);
+            ft.transform.LookAt(playerCamera.transform.position);
+            ft.transform.rotation = Quaternion.LookRotation(playerCamera.transform.forward);
+            ft.GetComponent<TextMesh>().text = enemiesHealth.ToString();
+
         }
         if (other.CompareTag("ShotGum"))
         {
@@ -81,6 +101,13 @@ public class EnemiesHealthScript : MonoBehaviour
             ParticleSystem playHitEffect = Instantiate(hitEffect, hitPosition.position, Quaternion.identity);
             enemiesDiesSoundEffect.Play();
             enemiesHurtSoundEffect2.Play();
+
+            Quaternion floatingTextRotation = Quaternion.Euler(0, 180, 0);
+            GameObject ft = Instantiate(floatingText, enemyFloatingTextPosition.position, floatingTextRotation);
+            ft.transform.LookAt(playerCamera.transform.position);
+            ft.transform.rotation = Quaternion.LookRotation(playerCamera.transform.forward);
+            //ft.transform.rotation = floatingTextRotation;
+            ft.GetComponent<TextMesh>().text = enemiesHealth.ToString();
 
         }
         if (other.CompareTag("Explosion"))
