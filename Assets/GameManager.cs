@@ -47,6 +47,10 @@ public class GameManager : MonoBehaviour
     public bool playing;
     public GameObject welcomeUI;
 
+    // Pause Settings
+    public bool isPaused;
+    public GameObject pausedUI;
+
     // Gameover Settings
     public bool gameOver;
     public GameObject gameoverUI;
@@ -91,9 +95,13 @@ public class GameManager : MonoBehaviour
 
         ableToClick = true;
         playing = false;
+        isPaused = false;  
         gameOver = false;
 
+
+        // Set Setting UIs
         welcomeUI.SetActive(true);
+        pausedUI.SetActive(false);
         gameoverUI.SetActive(false);
         wonUI.SetActive(false);
     }
@@ -187,7 +195,17 @@ public class GameManager : MonoBehaviour
             bombAmountText.text = "GUMMY BOMBS: " + Mathf.Round(bombsAmount);
         }
         
-
+        // Contidtions when the player has paused the game
+        if (isPaused == true && playing)
+        {
+            Time.timeScale = 0f;
+            pausedUI.SetActive(true);
+        }
+        else if (isPaused == false && playing)
+        {
+            Time.timeScale = 1f;
+            pausedUI.SetActive(false);
+        }
     }
 
     private IEnumerator RecoverDash()
@@ -210,6 +228,11 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         playerStartGameSoundEffect.Play();
         welcomeUI.SetActive(false);
+    }
+
+    public void ResumeButton()
+    {
+        isPaused = false;
     }
 
     public void BackButton()

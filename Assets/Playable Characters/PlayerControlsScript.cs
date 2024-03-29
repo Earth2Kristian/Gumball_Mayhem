@@ -74,6 +74,8 @@ public class PlayerControlsScript : MonoBehaviour
     public AudioSource jumpSoundEffect;
     public AudioSource dashSoundEffect;
   
+    // Pause Settings for the Player
+    public bool paused = false;
 
 
     private void OnEnable()
@@ -337,6 +339,18 @@ public class PlayerControlsScript : MonoBehaviour
                 GameManager.Instance.bombsAmount -= 1;
                 GameManager.Instance.bombAmountText.text = "GUMMY BOMBS: " + Mathf.Round(GameManager.Instance.bombsAmount);
             }
+        }
+    }
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        // When the player paused the game
+        paused = context.action.triggered;
+        paused = context.performed;
+
+        if (context.performed && GameManager.Instance.playing == true)
+        {
+            GameManager.Instance.isPaused = true;
         }
     }
 

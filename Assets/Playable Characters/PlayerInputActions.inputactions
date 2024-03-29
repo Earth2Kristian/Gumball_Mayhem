@@ -139,6 +139,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "OnPause",
+                    "type": "Button",
+                    "id": "dbd1ec42-6f9b-4d70-a821-856d66bcb109",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -678,6 +687,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "OnShotGun",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b2646be0-44e6-4aba-9e2c-8a583ee5939d",
+                    "path": "<Keyboard>/p",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OnPause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
