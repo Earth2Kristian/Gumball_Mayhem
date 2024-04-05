@@ -44,7 +44,7 @@ public class EnemiesSpawningScript : MonoBehaviour
             }
                  
 
-            if (GameManager.Instance.countdownTimer >= 75 && GameManager.Instance.countdownTimer < 200)
+            if (GameManager.Instance.countdownTimer >= 100 && GameManager.Instance.countdownTimer < 200)
             {
                
                     // Spawn Normal Enemy
@@ -65,7 +65,7 @@ public class EnemiesSpawningScript : MonoBehaviour
             }
                 
 
-            if (GameManager.Instance.countdownTimer < 75)
+            if (GameManager.Instance.countdownTimer < 100)
             {
                
                     // Spawn Normal Enemy
