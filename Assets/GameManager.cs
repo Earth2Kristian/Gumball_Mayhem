@@ -55,7 +55,8 @@ public class GameManager : MonoBehaviour
     public bool gameOver;
     public GameObject gameoverUI;
     public GameObject wonUI;
-    public TMP_Text finalScoreText;
+    public TMP_Text finalScoreLoseText;
+    public TMP_Text finalScoreWinText;
 
     // Sound Effect
     public AudioSource playerStartGameSoundEffect;
@@ -118,8 +119,9 @@ public class GameManager : MonoBehaviour
             timerText.text = "TIMER: " + Mathf.Round(countdownTimer);
             Time.timeScale = 0f;
             wonUI.SetActive(true);
-            finalScoreText.text = " SCORE:  " + Mathf.Round(ballCounts);
+            finalScoreWinText.text = " SCORE:  " + Mathf.Round(ballCounts);
             playing = false;
+            ableToClick = true;
             gameOver = true;
             gameWon = true;
             return;
@@ -137,7 +139,7 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 0f;
             gameoverUI.SetActive(true);
-            finalScoreText.text = " SCORE:  " + Mathf.Round(ballCounts);
+            finalScoreLoseText.text = " SCORE:  " + Mathf.Round(ballCounts);
             healthBar.UpdateHealthhBar(healthCurrent, healthLimited);
             playing = false;
             ableToClick = true;
@@ -200,11 +202,13 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 0f;
             pausedUI.SetActive(true);
+            ableToClick = true;
         }
         else if (isPaused == false && playing)
         {
             Time.timeScale = 1f;
             pausedUI.SetActive(false);
+            ableToClick = false;
         }
     }
 

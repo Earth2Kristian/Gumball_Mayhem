@@ -16899,7 +16899,8 @@ MonoBehaviour:
   gameOver: 0
   gameoverUI: {fileID: 1044365847}
   wonUI: {fileID: 770029533}
-  finalScoreText: {fileID: 1438712713}
+  finalScoreLoseText: {fileID: 1438712713}
+  finalScoreWinText: {fileID: 805567709}
   playerStartGameSoundEffect: {fileID: 945929188}
   gameLost: 0
   gameWon: 0

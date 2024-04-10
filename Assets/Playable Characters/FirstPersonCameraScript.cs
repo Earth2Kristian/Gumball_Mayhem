@@ -13,19 +13,24 @@ public class FirstPersonCameraScript : MonoBehaviour
 
     void Start()
     {
-        if (!GameManager.Instance.ableToClick)
-        {
-            //Cursor.lockState = CursorLockMode.Locked;
-        }
-        if (GameManager.Instance.ableToClick)
-        {
-            //Cursor.lockState  = CursorLockMode.None;  
-        }
+        Cursor.visible = true;  
+        Cursor.lockState = CursorLockMode.None;
     }
 
     void Update()
     {
-        
+
+        if (!GameManager.Instance.ableToClick)
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        if (GameManager.Instance.ableToClick)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+
         if (Gamepad.current != null)
         {
             // If Gamepad is being used
