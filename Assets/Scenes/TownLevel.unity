@@ -57407,6 +57407,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3602845662154453949, guid: d3e71171e1ba5ba4f87bcbc3c7f14ffa, type: 3}
+      propertyPath: mouseSensitivity
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 3602845662692380096, guid: d3e71171e1ba5ba4f87bcbc3c7f14ffa, type: 3}
       propertyPath: currentSpeed
       value: 12
