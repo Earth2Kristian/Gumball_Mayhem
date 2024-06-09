@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5212877196479541579}
   - component: {fileID: 4164077335831774943}
   - component: {fileID: 8672071063580757392}
+  - component: {fileID: 2339359650833936214}
   m_Layer: 0
   m_Name: RaspberryGumballs
   m_TagString: Gumballs
@@ -105,7 +106,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -5008,6 +5009,19 @@ MonoBehaviour:
   BulletLimited: 6
   bulletEffect: {fileID: 5285327573984388701, guid: 901a3104977060d449e21c4b6742da60, type: 3}
   bulletPosition: {fileID: 27845067945810311}
+--- !u!114 &2339359650833936214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27845067945810363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e061ac3110300f41adfed4d2431680a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounceSpeed: 5
 --- !u!1001 &1395112027224987391
 PrefabInstance:
   m_ObjectHideFlags: 0

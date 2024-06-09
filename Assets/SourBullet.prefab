@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1417409579425135633}
   - component: {fileID: 6033405524716455023}
   - component: {fileID: -3178733861564253861}
+  - component: {fileID: 8261839519720161915}
   m_Layer: 0
   m_Name: SourBullet
   m_TagString: SourBullet
@@ -103,7 +104,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -249,6 +250,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8261839519720161915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268931874963566620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e061ac3110300f41adfed4d2431680a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounceSpeed: 5
 --- !u!1001 &2288031883677379785
 PrefabInstance:
   m_ObjectHideFlags: 0

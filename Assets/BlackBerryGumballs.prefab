@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3800724685084549950}
   - component: {fileID: 4981254418220602538}
   - component: {fileID: 337871581278412773}
+  - component: {fileID: -3476885738425356667}
   m_Layer: 0
   m_Name: BlackBerryGumballs
   m_TagString: ShotGum
@@ -105,7 +106,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -5008,6 +5009,19 @@ MonoBehaviour:
   BulletLimited: 6
   bulletEffect: {fileID: 4658193685526191534, guid: a737e301089caf54f80a66b8c1cb4753, type: 3}
   bulletPosition: {fileID: 8974497816697654258}
+--- !u!114 &-3476885738425356667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8974497816697654222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e061ac3110300f41adfed4d2431680a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounceSpeed: 5
 --- !u!1001 &1935149900973907448
 PrefabInstance:
   m_ObjectHideFlags: 0

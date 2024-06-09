@@ -12,6 +12,8 @@ TagManager:
   - ShotGum
   - BasicGum
   - GumBits
+  - FxTemporaire
+  - GroundFloor
   layers:
   - Default
   - TransparentFX
@@ -20,8 +22,8 @@ TagManager:
   - Water
   - UI
   - GroundFloor
-  - 
-  - 
+  - Gumball
+  - Building
   - 
   - 
   - 
