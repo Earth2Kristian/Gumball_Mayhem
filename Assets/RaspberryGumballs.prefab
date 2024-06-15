@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4164077335831774943}
   - component: {fileID: 8672071063580757392}
   - component: {fileID: 2339359650833936214}
+  - component: {fileID: 3736652357027329541}
   m_Layer: 0
   m_Name: RaspberryGumballs
   m_TagString: Gumballs
@@ -5021,7 +5022,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e061ac3110300f41adfed4d2431680a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceSpeed: 5
+  bounceSpeed: 10
+--- !u!95 &3736652357027329541
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27845067945810363}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 07c772e157e0365459488eb7d0b5f32e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1395112027224987391
 PrefabInstance:
   m_ObjectHideFlags: 0
