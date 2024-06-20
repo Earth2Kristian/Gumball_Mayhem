@@ -69,6 +69,11 @@ public class PlayerControlsScript : MonoBehaviour
     public Transform bombPoint;
     public float bombThrowHeight = 2f;
 
+    // Change of Texts
+    public GameObject handGumtext;
+    public GameObject rifleGumtext;
+    public GameObject shotGumtext;
+
     // Sound Effects
     public AudioSource gumballShootSoundEffect;
     public AudioSource jumpSoundEffect;
@@ -95,6 +100,10 @@ public class PlayerControlsScript : MonoBehaviour
         pistolOn = true;
         rifleOn = false;
         shotgunOn = false;
+
+        handGumtext.SetActive(true);
+        rifleGumtext.SetActive(false);
+        shotGumtext.SetActive(false);
 
         rb.GetComponent<Rigidbody>();
         cc.GetComponent<CapsuleCollider>();
@@ -293,6 +302,11 @@ public class PlayerControlsScript : MonoBehaviour
             pistolOn = true;
             rifleOn = false;
             shotgunOn = false;
+
+            handGumtext.SetActive(true);
+            rifleGumtext.SetActive(false);
+            shotGumtext.SetActive(false);
+
         }
     }
     public void OnRifle(InputAction.CallbackContext context)
@@ -305,6 +319,10 @@ public class PlayerControlsScript : MonoBehaviour
             pistolOn = false;
             rifleOn = true;
             shotgunOn = false;
+
+            handGumtext.SetActive(false);
+            rifleGumtext.SetActive(true);
+            shotGumtext.SetActive(false);
         }
     }
 
@@ -318,6 +336,10 @@ public class PlayerControlsScript : MonoBehaviour
             pistolOn = false;
             rifleOn = false;
             shotgunOn = true;
+
+            handGumtext.SetActive(false);
+            rifleGumtext.SetActive(false);
+            shotGumtext.SetActive(true);
         }
     }
 
