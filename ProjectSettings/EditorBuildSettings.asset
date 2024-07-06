@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/ControlsScreen.unity
     guid: 42d7666b1f0ef354c9c1a61dd5c023a3
   - enabled: 1
+    path: Assets/Scenes/AboutScene.unity
+    guid: 6b791dc1cc670084897d5065f4d93232
+  - enabled: 1
     path: Assets/Scenes/TownLevel.unity
     guid: c4811e8331744014287bc6521e6a860d
   m_configObjects: {}

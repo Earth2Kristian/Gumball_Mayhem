@@ -11,6 +11,7 @@ public class HealthRefillerScript : MonoBehaviour
         {
             GameManager.Instance.healthCurrent += 50;
             GameManager.Instance.healthBar.UpdateHealthhBar(GameManager.Instance.healthCurrent, GameManager.Instance.healthLimited);
+            GameManager.Instance.healthText.text = " " + Mathf.Round(GameManager.Instance.healthCurrent);
             GameManager.Instance.ballCounts += 25;
             GameManager.Instance.ballCountsText.text = "SCORE: " + Mathf.Round(GameManager.Instance.ballCounts);
             healthSoundEffect.Play();

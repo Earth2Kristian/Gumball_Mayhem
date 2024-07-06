@@ -140,13 +140,14 @@ public class PlayerControlsScript : MonoBehaviour
 
         if (context.performed && !isDodged)
         {
-            if (GameManager.Instance.dashCurrent > 0 && GameManager.Instance.playing == true)
+            if (GameManager.Instance.canDash == true && GameManager.Instance.playing == true)
             {
                 isDodged = true;
                 Vector3 dodgeDirection = transform.forward;
                 velocity = dodgeDirection * (dodgeDistance / dodgeTimeLimited);
                 GameManager.Instance.dashCurrent -= 1;
                 GameManager.Instance.dashBar.UpdateDashBar(GameManager.Instance.dashCurrent, GameManager.Instance.dashLimited);
+                GameManager.Instance.dashText.text = " " + Mathf.Round(GameManager.Instance.dashCurrent);
                 dashSoundEffect.Play();
             }
 
@@ -163,13 +164,14 @@ public class PlayerControlsScript : MonoBehaviour
 
         if (context.performed && !isDodged)
         {
-            if (GameManager.Instance.dashCurrent > 0 && GameManager.Instance.playing == true)
+            if (GameManager.Instance.canDash == true && GameManager.Instance.playing == true)
             {
                 isDodged = true;
                 Vector3 dodgeDirection = -transform.right;
                 velocity = dodgeDirection * (dodgeDistance / dodgeTimeLimited);
                 GameManager.Instance.dashCurrent -= 1;
                 GameManager.Instance.dashBar.UpdateDashBar(GameManager.Instance.dashCurrent, GameManager.Instance.dashLimited);
+                GameManager.Instance.dashText.text = " " + Mathf.Round(GameManager.Instance.dashCurrent);
                 dashSoundEffect.Play();
             }
 
@@ -185,13 +187,14 @@ public class PlayerControlsScript : MonoBehaviour
 
         if (context.performed && !isDodged)
         {
-            if (GameManager.Instance.dashCurrent > 0 && GameManager.Instance.playing == true)
+            if (GameManager.Instance.canDash == true && GameManager.Instance.playing == true)
             {
                 isDodged = true;
                 Vector3 dodgeDirection = transform.right;
                 velocity = dodgeDirection * (dodgeDistance / dodgeTimeLimited);
                 GameManager.Instance.dashCurrent -= 1;
                 GameManager.Instance.dashBar.UpdateDashBar(GameManager.Instance.dashCurrent, GameManager.Instance.dashLimited);
+                GameManager.Instance.dashText.text = " " + Mathf.Round(GameManager.Instance.dashCurrent);
                 dashSoundEffect.Play();
             }
 
@@ -207,13 +210,14 @@ public class PlayerControlsScript : MonoBehaviour
 
         if (context.performed && !isDodged)
         {
-            if (GameManager.Instance.dashCurrent > 0 && GameManager.Instance.playing == true)
+            if (GameManager.Instance.canDash == true && GameManager.Instance.playing == true)
             {
                 isDodged = true;
                 Vector3 dodgeDirection = -transform.forward;
                 velocity = dodgeDirection * (dodgeDistance / dodgeTimeLimited);
                 GameManager.Instance.dashCurrent -= 1;
                 GameManager.Instance.dashBar.UpdateDashBar(GameManager.Instance.dashCurrent, GameManager.Instance.dashLimited);
+                GameManager.Instance.dashText.text = " " + Mathf.Round(GameManager.Instance.dashCurrent);
                 dashSoundEffect.Play();
             }
 

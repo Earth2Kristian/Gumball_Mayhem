@@ -32,9 +32,11 @@ public class GameManager : MonoBehaviour
     public float dashCurrent;
     public float dashLimited = 3;
     public DashBarScript dashBar;
+    public bool canDash;
 
     // Texts
     public TMP_Text healthText;
+    public TMP_Text dashText;
     public TMP_Text ballCountsText;
     public TMP_Text timerText;
     public TMP_Text enemyCounterText;
@@ -68,7 +70,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         // Set the Text
-        healthText.text = "HP: " + Mathf.Round(health);
+        healthText.text = " " + Mathf.Round(healthCurrent);
+        dashText.text = " " + Mathf.Round(dashCurrent);
         ballCountsText.text = "SCORE: " + Mathf.Round(ballCounts);
         timerText.text = "TIMER: " + Mathf.Round(countdownTimer);
         enemyCounterText.text = "ENEMY: " + Mathf.Round(enemyCounts);
@@ -91,6 +94,7 @@ public class GameManager : MonoBehaviour
         // Set the Dash Bar for the Player
         dashCurrent = dashLimited;
         dashBar.UpdateDashBar(dashCurrent, dashLimited);
+        canDash = true;
 
         playerGotHit = false;
 
@@ -132,6 +136,7 @@ public class GameManager : MonoBehaviour
         {
             healthCurrent = healthLimited;
             healthBar.UpdateHealthhBar(healthCurrent, healthLimited);
+            healthText.text = " " + Mathf.Round(healthCurrent);
 
         }
 
@@ -141,6 +146,7 @@ public class GameManager : MonoBehaviour
             gameoverUI.SetActive(true);
             finalScoreLoseText.text = " SCORE:  " + Mathf.Round(ballCounts);
             healthBar.UpdateHealthhBar(healthCurrent, healthLimited);
+            healthText.text = " " + Mathf.Round(healthCurrent);
             playing = false;
             ableToClick = true;
             gameOver = true;
@@ -152,13 +158,24 @@ public class GameManager : MonoBehaviour
 
         if (dashCurrent < 3)
         {
-            StartCoroutine(RecoverDash());
+            //StartCoroutine(RecoverDash());
         }
 
-        if (dashCurrent >= 3)
+        if (dashCurrent <= 0)
+        {
+            dashCurrent = 0;
+            dashBar.UpdateDashBar(dashCurrent, dashLimited);
+            dashText.text = " " + Mathf.Round(dashCurrent);
+            StartCoroutine(RecoverDash());
+            canDash = false;
+        }
+
+        if (dashCurrent > 2)
         {
             dashCurrent = dashLimited;
             dashBar.UpdateDashBar(dashCurrent, dashLimited);
+            dashText.text = " " + Mathf.Round(dashCurrent);
+            canDash = true;
         }
 
         // Condition when the player got hit
@@ -215,8 +232,9 @@ public class GameManager : MonoBehaviour
     private IEnumerator RecoverDash()
     {
         yield return new WaitForSeconds(3);
-        dashCurrent += 1 * Time.deltaTime;
+        dashCurrent += 1f * Time.deltaTime;
         dashBar.UpdateDashBar(dashCurrent, dashLimited);
+        dashText.text = " " + Mathf.Round(dashCurrent);
 
     }
     public IEnumerator CameraShakingDelay()
@@ -242,6 +260,7 @@ public class GameManager : MonoBehaviour
     public void BackButton()
     {
         SceneManager.LoadScene(0);
+        Time.timeScale = 1f;
         countdownTimer = 300;
         healthCurrent = healthLimited;
         dashCurrent = dashLimited;
@@ -253,10 +272,12 @@ public class GameManager : MonoBehaviour
         // Set the Health Bar for the Player 
         healthCurrent = healthLimited;
         healthBar.UpdateHealthhBar(healthCurrent, healthLimited);
+        healthText.text = " " + Mathf.Round(healthCurrent);
 
         // Set the Dash Bar for the Player
         dashCurrent = dashLimited;
         dashBar.UpdateDashBar(dashCurrent, dashLimited);
+        dashText.text = " " + Mathf.Round(dashCurrent);
 
         gameOver = false;
         playing = false;

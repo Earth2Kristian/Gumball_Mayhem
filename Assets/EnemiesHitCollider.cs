@@ -16,6 +16,7 @@ public class EnemiesHitCollider : MonoBehaviour
         {
             GameManager.Instance.healthCurrent -= 5;
             GameManager.Instance.healthBar.UpdateHealthhBar(GameManager.Instance.healthCurrent, GameManager.Instance.healthLimited);
+            GameManager.Instance.healthText.text = " " + Mathf.Round(GameManager.Instance.healthCurrent);
 
             GameManager.Instance.playerGotHit = true;
 

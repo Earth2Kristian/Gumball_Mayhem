@@ -29,6 +29,7 @@ public class SourBulletScript : MonoBehaviour
             Destroy(this.gameObject);
             GameManager.Instance.healthCurrent -= 10;
             GameManager.Instance.healthBar.UpdateHealthhBar(GameManager.Instance.healthCurrent, GameManager.Instance.healthLimited);
+            GameManager.Instance.healthText.text = " " + Mathf.Round(GameManager.Instance.healthCurrent);
 
             GameManager.Instance.playerGotHit = true;
 
