@@ -56,6 +56,9 @@ public class PlayerControlsScript : MonoBehaviour
     public GameObject shotgun;
     public bool shotgunOn;
 
+    // Rifle Variable
+    public bool rifleHoldButton = false;
+
     // Basic Shooting Variables
     public bool shooted = false;
     public GameObject strawberryGumballProjectiles;
@@ -266,17 +269,12 @@ public class PlayerControlsScript : MonoBehaviour
         }
         if (context.performed && rifleOn == true)
         {
-            if (GameManager.Instance.rifleAmmons > 0 && GameManager.Instance.playing == true)
-            {
-                GameObject bullet = Instantiate(raspberryGumballProjectiles, gunPoint.position, Quaternion.identity);
-                bullet.GetComponent<Rigidbody>().AddForce(gunPoint.forward * 1200);
-                GameManager.Instance.ballCounts += 1;
-                GameManager.Instance.ballCountsText.text = "SCORE: " + Mathf.Round(GameManager.Instance.ballCounts);
-                GameManager.Instance.rifleAmmons -= 1;
-                GameManager.Instance.rifleAmmonsText.text = "RIFLE GUM AMMO: " + Mathf.Round(GameManager.Instance.rifleAmmons);
-                gumballShootSoundEffect.Play();
-            }
+            rifleHoldButton = true;
             
+        }
+        else if (!context.performed && rifle == true)
+        {
+            rifleHoldButton = false;
         }
         if (context.performed && shotgunOn == true)
         {
@@ -430,6 +428,22 @@ public class PlayerControlsScript : MonoBehaviour
                 shotgun.SetActive(true);
             }
 
+        }
+
+        if (rifleHoldButton == true)
+        {
+            if (GameManager.Instance.rifleAmmons > 0 && GameManager.Instance.playing == true)
+            {
+
+                GameObject bullet = Instantiate(raspberryGumballProjectiles, gunPoint.position, Quaternion.identity);
+                bullet.GetComponent<Rigidbody>().AddForce(gunPoint.forward * 1200);
+                GameManager.Instance.ballCounts += 1;
+                GameManager.Instance.ballCountsText.text = "SCORE: " + Mathf.Round(GameManager.Instance.ballCounts);
+                GameManager.Instance.rifleAmmons -= 1;
+                GameManager.Instance.rifleAmmonsText.text = "RIFLE GUM AMMO: " + Mathf.Round(GameManager.Instance.rifleAmmons);
+                gumballShootSoundEffect.Play();
+            }
+            
         }
     }
 

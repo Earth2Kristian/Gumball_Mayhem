@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 8672071063580757392}
   - component: {fileID: 2339359650833936214}
   - component: {fileID: 3736652357027329541}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RaspberryGumballs
   m_TagString: Gumballs
   m_Icon: {fileID: 0}
@@ -5108,6 +5108,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: gumball2
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8c72db4d922e21945ae07167d86a7c67, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5173,6 +5177,10 @@ PrefabInstance:
     - target: {fileID: 7627641788510493790, guid: 8e4f0fe42c29bc84993d296ae0d4e4c0, type: 3}
       propertyPath: m_Name
       value: bulletDisappearEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 7627641788510493790, guid: 8e4f0fe42c29bc84993d296ae0d4e4c0, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
