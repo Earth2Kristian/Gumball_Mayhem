@@ -6,13 +6,16 @@ using UnityEngine.SceneManagement;
 public class ScreenLoadScript : MonoBehaviour
 {
     // Loads up Scenes
+    public Animator transitionScene;
     void Start()
     {
-        Time.timeScale = 1f; 
+        Time.timeScale = 1f;
+        transitionScene.SetTrigger("startScene");
     }
     public void PlayButton()
     {
-        SceneManager.LoadScene(3);
+        transitionScene.SetTrigger("endScene");
+        StartCoroutine(TransitionPlay());
     }
     public void ControlButton()
     {
@@ -32,6 +35,12 @@ public class ScreenLoadScript : MonoBehaviour
     public void QuitButton()
     {
         Application.Quit();
+    }
+
+    private IEnumerator TransitionPlay()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(3);
     }
 
 }
