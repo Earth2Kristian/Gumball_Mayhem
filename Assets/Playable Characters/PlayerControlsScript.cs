@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class PlayerControlsScript : MonoBehaviour
 {
@@ -56,8 +57,10 @@ public class PlayerControlsScript : MonoBehaviour
     public GameObject shotgun;
     public bool shotgunOn;
 
-    // Rifle Variable
+    // Press or Hold Button Variables
+    public bool pistolPressButton = false;
     public bool rifleHoldButton = false;
+    public bool shotgunPressButton = false;
 
     // Basic Shooting Variables
     public bool shooted = false;
@@ -279,16 +282,8 @@ public class PlayerControlsScript : MonoBehaviour
         if (context.performed && shotgunOn == true)
         {
 
-            if (GameManager.Instance.shotgunAmmons > 0 && GameManager.Instance.playing == true)
-            {
-                GameObject bullet = Instantiate(blackberryGumballProjectiles, gunPoint.position, Quaternion.identity);
-                bullet.GetComponent<Rigidbody>().AddForce(gunPoint.forward * 300);
-                GameManager.Instance.ballCounts += 1;
-                GameManager.Instance.ballCountsText.text = "SCORE: " + Mathf.Round(GameManager.Instance.ballCounts);
-                GameManager.Instance.shotgunAmmons -= 1;
-                GameManager.Instance.shotgunAmmonsText.text = "SHOT GUM AMMO: " + Mathf.Round(GameManager.Instance.shotgunAmmons);
-                gumballShootSoundEffect.Play();
-            }
+            shotgunPressButton = true;
+
             
         }
     }
@@ -430,7 +425,7 @@ public class PlayerControlsScript : MonoBehaviour
 
         }
 
-        if (rifleHoldButton == true)
+        if (rifleHoldButton == true && rifleOn == true)
         {
             if (GameManager.Instance.rifleAmmons > 0 && GameManager.Instance.playing == true)
             {
@@ -444,6 +439,25 @@ public class PlayerControlsScript : MonoBehaviour
                 gumballShootSoundEffect.Play();
             }
             
+        }
+
+        if (shotgunPressButton == true && shotgunOn == true) 
+        {
+            if (GameManager.Instance.shotgunAmmons > 0 && GameManager.Instance.playing == true)
+            {
+                shotgunPressButton = false;
+                for (int gumballAmount = 0; gumballAmount < 10; gumballAmount++ )
+                {
+                    GameObject bullet = Instantiate(blackberryGumballProjectiles, gunPoint.position, Quaternion.identity);
+                    bullet.GetComponent<Rigidbody>().AddForce(gunPoint.forward * 1500);
+                }
+                
+                GameManager.Instance.ballCounts += 1;
+                GameManager.Instance.ballCountsText.text = "SCORE: " + Mathf.Round(GameManager.Instance.ballCounts);
+                GameManager.Instance.shotgunAmmons -= 1;
+                GameManager.Instance.shotgunAmmonsText.text = "SHOT GUM AMMO: " + Mathf.Round(GameManager.Instance.shotgunAmmons);
+                gumballShootSoundEffect.Play();
+            }
         }
     }
 

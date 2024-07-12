@@ -7,6 +7,7 @@ public class ScreenLoadScript : MonoBehaviour
 {
     // Loads up Scenes
     public Animator transitionScene;
+    public AudioSource popSoundEffect;
     void Start()
     {
         Time.timeScale = 1f;
@@ -15,21 +16,25 @@ public class ScreenLoadScript : MonoBehaviour
     public void PlayButton()
     {
         transitionScene.SetTrigger("endScene");
+        popSoundEffect.Play();
         StartCoroutine(TransitionPlay());
     }
     public void ControlButton()
-    {
+    { 
         SceneManager.LoadScene(1);
+        popSoundEffect.Play();
     }
 
     public void AboutButton()
     {
         SceneManager.LoadScene(2);
+        popSoundEffect.Play();
     }
 
     public void BackButton()
     {
         SceneManager.LoadScene(0);
+        popSoundEffect.Play();  
     }    
 
     public void QuitButton()
