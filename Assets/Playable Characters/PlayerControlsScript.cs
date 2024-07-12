@@ -451,7 +451,6 @@ public class PlayerControlsScript : MonoBehaviour
                     GameObject bullet = Instantiate(blackberryGumballProjectiles, gunPoint.position, Quaternion.identity);
                     bullet.GetComponent<Rigidbody>().AddForce(gunPoint.forward * 1500);
                 }
-                
                 GameManager.Instance.ballCounts += 1;
                 GameManager.Instance.ballCountsText.text = "SCORE: " + Mathf.Round(GameManager.Instance.ballCounts);
                 GameManager.Instance.shotgunAmmons -= 1;
