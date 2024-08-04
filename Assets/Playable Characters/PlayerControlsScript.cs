@@ -68,6 +68,10 @@ public class PlayerControlsScript : MonoBehaviour
     public GameObject raspberryGumballProjectiles;
     public GameObject blackberryGumballProjectiles;
     public Transform gunPoint;
+    public Transform shotgunPoint1;
+    public Transform shotgunPoint2;
+    public Transform shotgunPoint3;
+    public Transform shotgunPoint4; 
     
     // Basic Bombing Variables (Scrapped)
     public bool bombed = false;
@@ -446,11 +450,16 @@ public class PlayerControlsScript : MonoBehaviour
             if (GameManager.Instance.shotgunAmmons > 0 && GameManager.Instance.playing == true)
             {
                 shotgunPressButton = false;
-                for (int gumballAmount = 0; gumballAmount < 10; gumballAmount++ )
-                {
-                    GameObject bullet = Instantiate(blackberryGumballProjectiles, gunPoint.position, Quaternion.identity);
-                    bullet.GetComponent<Rigidbody>().AddForce(gunPoint.forward * 1500);
-                }
+
+                GameObject bullet = Instantiate(blackberryGumballProjectiles, shotgunPoint1.position, Quaternion.identity);
+                GameObject bullet2 = Instantiate(blackberryGumballProjectiles, shotgunPoint2.position, Quaternion.identity);
+                GameObject bullet3 = Instantiate(blackberryGumballProjectiles, shotgunPoint3.position, Quaternion.identity);
+                GameObject bullet4 = Instantiate(blackberryGumballProjectiles, shotgunPoint4.position, Quaternion.identity);
+                bullet.GetComponent<Rigidbody>().AddForce(shotgunPoint1.forward * 1500);
+                bullet2.GetComponent<Rigidbody>().AddForce(shotgunPoint2.forward * 1500);
+                bullet3.GetComponent<Rigidbody>().AddForce(shotgunPoint3.forward * 1500);
+                bullet4.GetComponent<Rigidbody>().AddForce(shotgunPoint4.forward * 1500);
+
                 GameManager.Instance.ballCounts += 1;
                 GameManager.Instance.ballCountsText.text = "SCORE: " + Mathf.Round(GameManager.Instance.ballCounts);
                 GameManager.Instance.shotgunAmmons -= 1;

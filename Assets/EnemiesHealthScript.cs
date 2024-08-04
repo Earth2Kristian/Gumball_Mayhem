@@ -28,12 +28,21 @@ public class EnemiesHealthScript : MonoBehaviour
     public Transform enemyFloatingTextPosition;
     public GameObject floatingText;
 
+    // Taken Damage
+    public float pinkGumballTakenDamage;
+    public float blueGumballTakenDamage;
+    public float purpleGumballTakenDamage;
+
     void Start()
     {
         enemiesHealth = 100;
 
         playerCamera = Camera.main;
-    }
+
+        pinkGumballTakenDamage = Random.Range(40, 50);
+        blueGumballTakenDamage = Random.Range(20, 30);
+        purpleGumballTakenDamage = Random.Range(80, 100);
+}
 
     
     void Update()
@@ -49,6 +58,7 @@ public class EnemiesHealthScript : MonoBehaviour
             enemiesDiesSoundEffect.Play();
             GameManager.Instance.enemyCounts -= 1;
             GameManager.Instance.enemyCounterText.text = "ENEMY: " + Mathf.Round(GameManager.Instance.enemyCounts);
+            enemiesHealth = 0;
         }
     }
 
@@ -56,7 +66,7 @@ public class EnemiesHealthScript : MonoBehaviour
     {
         if (other.CompareTag("Gumballs"))
         {
-            enemiesHealth -= 25;
+            enemiesHealth -= blueGumballTakenDamage;
             GameManager.Instance.ballCounts += 20;
             GameManager.Instance.ballCountsText.text = "SCORE: " + Mathf.Round(GameManager.Instance.ballCounts);
             ParticleSystem playHitEffect = Instantiate(hitEffect, hitPosition.position, Quaternion.identity);  
@@ -70,13 +80,15 @@ public class EnemiesHealthScript : MonoBehaviour
             GameObject ft = Instantiate(floatingText, enemyFloatingTextPosition.position, floatingTextRotation);
             ft.transform.LookAt(playerCamera.transform.position);
             ft.transform.rotation = Quaternion.LookRotation(playerCamera.transform.forward);
-            ft.GetComponent<TextMesh>().text = enemiesHealth.ToString();
-            
+            ft.GetComponent<TextMesh>().text = blueGumballTakenDamage.ToString();
+
+            blueGumballTakenDamage = Random.Range(20, 30);
+
 
         }
         if (other.CompareTag("BasicGum"))
         {
-            enemiesHealth -= 50;
+            enemiesHealth -= pinkGumballTakenDamage;
             GameManager.Instance.ballCounts += 10;
             GameManager.Instance.ballCountsText.text = "SCORE: " + Mathf.Round(GameManager.Instance.ballCounts);
             ParticleSystem playHitEffect = Instantiate(hitEffect, hitPosition.position, Quaternion.identity);
@@ -90,12 +102,14 @@ public class EnemiesHealthScript : MonoBehaviour
             GameObject ft = Instantiate(floatingText, enemyFloatingTextPosition.position, floatingTextRotation);
             ft.transform.LookAt(playerCamera.transform.position);
             ft.transform.rotation = Quaternion.LookRotation(playerCamera.transform.forward);
-            ft.GetComponent<TextMesh>().text = enemiesHealth.ToString();
+            ft.GetComponent<TextMesh>().text = pinkGumballTakenDamage.ToString();
+
+            pinkGumballTakenDamage = Random.Range(40, 50);
 
         }
         if (other.CompareTag("ShotGum"))
         {
-            enemiesHealth -= 100;
+            enemiesHealth -= purpleGumballTakenDamage;
             GameManager.Instance.ballCounts += 30;
             GameManager.Instance.ballCountsText.text = "SCORE: " + Mathf.Round(GameManager.Instance.ballCounts);
             ParticleSystem playHitEffect = Instantiate(hitEffect, hitPosition.position, Quaternion.identity);
@@ -107,7 +121,9 @@ public class EnemiesHealthScript : MonoBehaviour
             ft.transform.LookAt(playerCamera.transform.position);
             ft.transform.rotation = Quaternion.LookRotation(playerCamera.transform.forward);
             //ft.transform.rotation = floatingTextRotation;
-            ft.GetComponent<TextMesh>().text = enemiesHealth.ToString();
+            ft.GetComponent<TextMesh>().text = purpleGumballTakenDamage.ToString();
+
+            purpleGumballTakenDamage = Random.Range(80, 100);
 
         }
         if (other.CompareTag("Explosion"))
