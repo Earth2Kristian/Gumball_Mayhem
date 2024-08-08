@@ -20,15 +20,17 @@ public class ScreenLoadScript : MonoBehaviour
         StartCoroutine(TransitionPlay());
     }
     public void ControlButton()
-    { 
-        SceneManager.LoadScene(1);
+    {
+        transitionScene.SetTrigger("endScene");
         popSoundEffect.Play();
+        StartCoroutine(TransitionControls());
     }
 
     public void AboutButton()
     {
-        SceneManager.LoadScene(2);
+        transitionScene.SetTrigger("endScene");
         popSoundEffect.Play();
+        StartCoroutine(TransitionAbout());
     }
 
     public void CreditsButton()
@@ -52,6 +54,18 @@ public class ScreenLoadScript : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(3);
+    }
+
+    private IEnumerator TransitionControls()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(1);
+    }
+
+    private IEnumerator TransitionAbout()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(2);
     }
 
 }

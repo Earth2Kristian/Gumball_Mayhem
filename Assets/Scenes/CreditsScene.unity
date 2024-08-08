@@ -1676,14 +1676,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Credits:\n\nSkybox - 10 Skyboxes Pack : Day - Night - Wello Soft\r\n\nThe
-    Floor and Road Model - Cartoon Low Poly City Pack Lite - JustCreate\n\r\nVisual
-    Effects - Cartoon FX Remaster Free - Jean Moreno\n\r\nGameplay UI Images - Lorc,
-    sbed, Delapouite, and John Colbum\n\r\nPop-Up, and Title Logo Font (Super Bubble)
-    - fsuarez913\r\n\nSound Effects and Background Music - jsfxr and Pixabay\n\nAnimations
-    - mixamo\r\r\n\n2D Image Tool (Used for Logo) - GIMP\n\n3D Model Tool - Blender\n\nGame
-    Engine - Unity\r\n\r\nProgramming, Designing, Models a few sound effects - me
-    :)\n\n\n\n\n\nThank you for Playing!"
+  m_text: "Credits:\n\nSkybox - 10 Skyboxes Pack: Day - Night - Wello Soft\r\n\nThe
+    Floor, Road, Bin and Lamp Pole Model - Cartoon Low Poly City Pack Lite - JustCreate\n\r\nVisual
+    and Particle Effects - Cartoon FX Remaster Free - Jean Moreno\n\r\nGameplay UI
+    Images - Lorc, sbed, Delapouite, and John Colbum\n\r\nPop-Up and Title Logo Font
+    (Super Bubble) - fsuarez913\r\n\nSound Effects and Background Music - jsfxr and
+    Pixabay\n\n2D Image Tool (Used for Logo) - GIMP\n\n3D Modelling Tool - Blender\n\nAnimations
+    Tool - Mixamo\r\r\n\nVoice Tool - Audacity\n\nGame Engine - Unity\r\n\r\nProgramming,
+    Designing, 3D Modelling and a few sound effects (voice of the enemies) - me :)\n\n\n\n\n\nThank
+    you for Playing!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 65ecf9d13b5228845ac5ee326c2bdf2e, type: 2}
   m_sharedMaterial: {fileID: 4248870293762162589, guid: 65ecf9d13b5228845ac5ee326c2bdf2e, type: 2}
