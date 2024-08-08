@@ -31,6 +31,12 @@ public class ScreenLoadScript : MonoBehaviour
         popSoundEffect.Play();
     }
 
+    public void CreditsButton()
+    {
+        SceneManager.LoadScene(4);
+        popSoundEffect.Play();
+    }
+
     public void BackButton()
     {
         SceneManager.LoadScene(0);

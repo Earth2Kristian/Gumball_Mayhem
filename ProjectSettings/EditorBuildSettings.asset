@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TownLevel.unity
     guid: c4811e8331744014287bc6521e6a860d
+  - enabled: 1
+    path: Assets/Scenes/CreditsScene.unity
+    guid: be887c93542b11a4d90d122711cf04ba
   m_configObjects: {}
