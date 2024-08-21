@@ -6625,6 +6625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76311eaf1470dcf46bf80863be3a0d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  qualitySettingDropdown: {fileID: 1575414811}
 --- !u!1001 &245806453
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45695,6 +45696,8 @@ MonoBehaviour:
     - m_Text: Mid
       m_Image: {fileID: 0}
     - m_Text: High
+      m_Image: {fileID: 0}
+    - m_Text: Ultra
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
