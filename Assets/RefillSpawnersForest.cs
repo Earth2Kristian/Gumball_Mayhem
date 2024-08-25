@@ -51,7 +51,7 @@ public class RefillSpawnersForest : MonoBehaviour
         }
         if (healthFillerTimeSpawn <= 0)
         {
-            Vector3 randomSpawnPosition = new Vector3(Random.Range(-30f, 19f), -5f, Random.Range(-41f, 16f));
+            Vector3 randomSpawnPosition = new Vector3(Random.Range(-30f, 19f), -4f, Random.Range(-41f, 16f));
             Instantiate(healthFillerObject, randomSpawnPosition, Quaternion.Euler(-90, 0, 0));
             healthFillerTimeSpawn = Random.Range(30, 45);
         }

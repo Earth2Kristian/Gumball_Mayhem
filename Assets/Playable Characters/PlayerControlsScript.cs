@@ -259,37 +259,40 @@ public class PlayerControlsScript : MonoBehaviour
         // Player shoots from its pistol
         shooted = context.action.triggered;
         shooted = context.performed;
-
-        if (context.performed && pistolOn == true)
+        if(GameManager.Instance.isPaused == false)
         {
-            if (GameManager.Instance.pistolAmmons > 0 && GameManager.Instance.playing == true)
+            if (context.performed && pistolOn == true)
             {
-                GameObject bullet = Instantiate(strawberryGumballProjectiles, gunPoint.position, Quaternion.identity);
-                bullet.GetComponent<Rigidbody>().AddForce(gunPoint.forward * 600);
-                GameManager.Instance.ballCounts += 1;
-                GameManager.Instance.ballCountsText.text = "SCORE: " + Mathf.Round(GameManager.Instance.ballCounts);
-                GameManager.Instance.pistolAmmons -= 1;
-                GameManager.Instance.pistolAmmonsText.text = "HAND GUM AMMO: " + Mathf.Round(GameManager.Instance.pistolAmmons);
-                gumballShootSoundEffect.Play();
+                if (GameManager.Instance.pistolAmmons > 0 && GameManager.Instance.playing == true)
+                {
+                    GameObject bullet = Instantiate(strawberryGumballProjectiles, gunPoint.position, Quaternion.identity);
+                    bullet.GetComponent<Rigidbody>().AddForce(gunPoint.forward * 600);
+                    GameManager.Instance.ballCounts += 1;
+                    GameManager.Instance.ballCountsText.text = "SCORE: " + Mathf.Round(GameManager.Instance.ballCounts);
+                    GameManager.Instance.pistolAmmons -= 1;
+                    GameManager.Instance.pistolAmmonsText.text = "HAND GUM AMMO: " + Mathf.Round(GameManager.Instance.pistolAmmons);
+                    gumballShootSoundEffect.Play();
+                }
+
             }
-            
-        }
-        if (context.performed && rifleOn == true)
-        {
-            rifleHoldButton = true;
-            
-        }
-        else if (!context.performed && rifle == true)
-        {
-            rifleHoldButton = false;
-        }
-        if (context.performed && shotgunOn == true)
-        {
+            if (context.performed && rifleOn == true)
+            {
+                rifleHoldButton = true;
 
-            shotgunPressButton = true;
+            }
+            else if (!context.performed && rifle == true)
+            {
+                rifleHoldButton = false;
+            }
+            if (context.performed && shotgunOn == true)
+            {
 
-            
+                shotgunPressButton = true;
+
+
+            }
         }
+       
     }
 
 
