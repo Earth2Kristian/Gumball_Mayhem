@@ -1087,7 +1087,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 160.1, y: -29.9}
+  m_AnchoredPosition: {x: 93.1, y: -29.9}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1553689779
@@ -1677,14 +1677,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Credits:\n\nSkybox - 10 Skyboxes Pack: Day - Night - Wello Soft\r\n\nThe
-    Floor, Road, Bin and Lamp Pole Model - Cartoon Low Poly City Pack Lite - JustCreate\n\r\nVisual
-    and Particle Effects - Cartoon FX Remaster Free - Jean Moreno\n\r\nGameplay UI
-    Images - Lorc, sbed, Delapouite, and John Colbum\n\r\nPop-Up and Title Logo Font
-    (Super Bubble) - fsuarez913\r\n\nSound Effects and Background Music - jsfxr and
-    Pixabay\n\n2D Image Tool (Used for Logo) - GIMP\n\n3D Modelling Tool - Blender\n\nAnimations
-    Tool - Mixamo\r\r\n\nVoice Tool - Audacity\n\nGame Engine - Unity\r\n\r\nProgramming,
-    Designing, 3D Modelling and a few sound effects (voice of the enemies) - me :)\n\n\n\n\n\nThank
-    you for Playing!"
+    Floor, Road, Bin and Lamp Pole Model - Cartoon Low Poly City Pack Lite - JustCreate\n\nBench
+    Model and White Path Terrain - Gigel\n\r\nVisual and Particle Effects - Cartoon
+    FX Remaster Free - Jean Moreno\n\r\nGameplay UI Images - Lorc, sbed, Delapouite,
+    and John Colbum\n\r\nPop-Up and Title Logo Font (Super Bubble) - fsuarez913\r\n\nSound
+    Effects and Background Music - jsfxr and Pixabay\n\n2D Image Tool (Used for Logo)
+    - GIMP\n\n3D Modelling Tool - Blender\n\nAnimations Tool - Mixamo\r\r\n\nVoice
+    Tool - Audacity\n\nGame Engine - Unity\r\n\r\nProgramming, Designing, 3D Modelling
+    and a few sound effects (voice of the enemies) - me :)\n\n\n\nThank you for Playing!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 65ecf9d13b5228845ac5ee326c2bdf2e, type: 2}
   m_sharedMaterial: {fileID: 4248870293762162589, guid: 65ecf9d13b5228845ac5ee326c2bdf2e, type: 2}
