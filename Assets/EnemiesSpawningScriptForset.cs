@@ -31,7 +31,7 @@ public class EnemiesSpawningScriptForset : MonoBehaviour
             if (GameManager.Instance.countdownTimer >= 200 && GameManager.Instance.countdownTimer <= 300)
             {
                 // Spawn Normal Enmey
-                Vector3 spawnPosition = new Vector3(Random.Range(-30f, 19f), 1f, Random.Range(-41f, 16f));
+                Vector3 spawnPosition = new Vector3(Random.Range(-60f, 19f), 1f, Random.Range(-41f, 16f));
                 Instantiate(normalSourEnemy, spawnPosition, Quaternion.identity);
                 GameManager.Instance.enemyCounts += 1;
                 GameManager.Instance.enemyCounterText.text = "ENEMY: " + Mathf.Round(GameManager.Instance.enemyCounts);
@@ -47,13 +47,13 @@ public class EnemiesSpawningScriptForset : MonoBehaviour
             {
 
                 // Spawn Normal Enemy
-                Vector3 spawnPosition = new Vector3(Random.Range(-30f, 19f), 1f, Random.Range(-41f, 16f));
+                Vector3 spawnPosition = new Vector3(Random.Range(-60f, 19f), 1f, Random.Range(-41f, 16f));
                 Instantiate(normalSourEnemy, spawnPosition, Quaternion.identity);
                 GameManager.Instance.enemyCounts += 1;
                 GameManager.Instance.enemyCounterText.text = "ENEMY: " + Mathf.Round(GameManager.Instance.enemyCounts);
 
                 // Spawn Guned Enemy
-                Vector3 spawnPosition2 = new Vector3(Random.Range(-30f, 19f), 1f, Random.Range(-41f, 16f));
+                Vector3 spawnPosition2 = new Vector3(Random.Range(-60f, 19f), 1f, Random.Range(-41f, 16f));
                 Instantiate(weaponedSourEnemy, spawnPosition2, Quaternion.identity);
                 GameManager.Instance.enemyCounts += 1;
                 GameManager.Instance.enemyCounterText.text = "ENEMY: " + Mathf.Round(GameManager.Instance.enemyCounts);
@@ -68,14 +68,14 @@ public class EnemiesSpawningScriptForset : MonoBehaviour
             {
 
                 // Spawn Normal Enemy
-                Vector3 spawnPosition = new Vector3(Random.Range(-30f, 19f), 1f, Random.Range(-41f, 16f));
+                Vector3 spawnPosition = new Vector3(Random.Range(-60f, 19f), 1f, Random.Range(-41f, 16f));
                 Instantiate(normalSourEnemy, spawnPosition, Quaternion.identity);
                 GameManager.Instance.enemyCounts += 1;
                 GameManager.Instance.enemyCounterText.text = "ENEMY: " + Mathf.Round(GameManager.Instance.enemyCounts);
 
 
                 // Spawn Guned Enemy
-                Vector3 spawnPosition2 = new Vector3(Random.Range(-30f, 19f), 1f, Random.Range(-41f, 16f));
+                Vector3 spawnPosition2 = new Vector3(Random.Range(-60f, 19f), 1f, Random.Range(-41f, 16f));
                 Instantiate(weaponedSourEnemy, spawnPosition2, Quaternion.identity);
                 GameManager.Instance.enemyCounts += 1;
                 GameManager.Instance.enemyCounterText.text = "ENEMY: " + Mathf.Round(GameManager.Instance.enemyCounts);
