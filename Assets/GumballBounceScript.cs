@@ -17,13 +17,13 @@ public class GumballBounceScript : MonoBehaviour
 
     void Update()
     {
-        lastVelocity = rb.velocity;
+        lastVelocity = rb.linearVelocity;
     }
 
     public void OnCollisionEnter(Collision collision)
     {
        Vector3 normal = collision.contacts[0].normal;
        Vector3 reflectedVelocity = Vector3.Reflect(lastVelocity.normalized, normal);
-       rb.velocity = reflectedVelocity * bounceSpeed;
+       rb.linearVelocity = reflectedVelocity * bounceSpeed;
     }
 }
